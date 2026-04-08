@@ -3,4 +3,4 @@
 @customerId = 56866987-a060-4eea-934d-08135011c918
 
 GET {{rootUrl}}/api/customer/{{customerId}} HTTP/1.1
-Ocp-Apim-Subscription-Key: c7259a70c86b41abbb767b9ae29dab15
+Ocp-Apim-Subscription-Key: c7259a70c86b41abbb767b9ae29dab15=5
