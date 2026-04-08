@@ -4,19 +4,19 @@ on:
   pull_request:
     branches: [ main ]
     paths-ignore:
-      - ./.api-calls
-      - ./.local-deployment
-      - ./.sming
-      - ./.sql-scripts
-      - ./.vscode
+      - .api-calls/
+      - .local-deployment/
+      - .sming/
+      - .sql-scripts/
+      - .vscode/
   push:
     branches: [ main ]
     paths-ignore:
-      - ./.api-calls
-      - ./.local-deployment
-      - ./.sming
-      - ./.sql-scripts
-      - ./.vscode
+      - .api-calls/
+      - .local-deployment/
+      - .sming/
+      - .sql-scripts/
+      - .vscode/
   workflow_dispatch:
 
 env:
