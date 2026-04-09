@@ -1,6 +1,7 @@
 using Azure.Monitor.OpenTelemetry.AspNetCore;
 using DemoApp.PublicApi.BusinessLogic;
-using SmingCode.Utilities.MinimalApi;
+using SmingCode.Utilities.ProcessTracking;
+using SmingCode.Utilities.ProcessTracking.WebApi;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -9,7 +10,12 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddOpenApi();
 builder.Services.InitialiseBusinessLogic(builder.Configuration);
 
-builder.Services.AddOpenTelemetry().UseAzureMonitor();
+builder.Services.AddOpenTelemetry()
+    .UseAzureMonitor();
+
+builder.Services.AddProcessTracking(tracking =>
+    tracking.AddApiMiddleware()
+);
 
 var app = builder.Build();
 
@@ -21,6 +27,7 @@ if (app.Environment.IsDevelopment())
     app.MapOpenApi();
 }
 
+app.UseProcessTrackingMiddleware();
 // app.UseHttpsRedirection();
 
 app.Run();

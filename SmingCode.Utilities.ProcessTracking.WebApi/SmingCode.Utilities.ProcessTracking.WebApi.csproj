@@ -7,8 +7,11 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\DemoApp.PublicApi.Domain\DemoApp.PublicApi.Domain.csproj" />
-    <ProjectReference Include="..\DemoApp.PublicApi.Dependencies\DemoApp.PublicApi.Dependencies.csproj" />
+    <PackageReference Include="Microsoft.AspNetCore.Http.Abstractions" Version="2.3.9" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\SmingCode.Utilities.ProcessTracking\SmingCode.Utilities.ProcessTracking.csproj" />
   </ItemGroup>
 
 </Project>

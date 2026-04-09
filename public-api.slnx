@@ -5,4 +5,6 @@
   <Project Path="DemoApp.PublicApi.Dependencies/DemoApp.PublicApi.Dependencies.csproj" />
   <Project Path="DemoApp.PublicApi.Domain/DemoApp.PublicApi.Domain.csproj" />
   <Project Path="DemoApp.PublicApi.Worker/DemoApp.PublicApi.Worker.csproj" />
+  <Project Path="SmingCode.Utilities.ProcessTracking.WebApi/SmingCode.Utilities.ProcessTracking.WebApi.csproj" />
+  <Project Path="SmingCode.Utilities.ProcessTracking/SmingCode.Utilities.ProcessTracking.csproj" />
 </Solution>
