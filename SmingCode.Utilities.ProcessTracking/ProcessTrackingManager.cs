@@ -9,7 +9,7 @@ internal class ProcessTrackingManager(
 {
     private const string PROCESS_ID_TAG_NAME = "process-id";
     private const string CORRELATION_ID_TAG_NAME = "correlation-id";
-    private readonly ActivitySource _activitySource = new ActivitySource(
+    private readonly ActivitySource _activitySource = new(
         $"{processTrackingConfiguration.ServiceName}.{processTrackingConfiguration.ServiceInstanceId}"
     );
 

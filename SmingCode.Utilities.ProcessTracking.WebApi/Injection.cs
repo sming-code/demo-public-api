@@ -13,6 +13,7 @@ public static class Injection
         var services = ((IProcessTrackingBuilderInternal)builder).Services;
 
         services.AddSingleton<IProcessTrackingHandler, ProcessTrackingHandler>();
+        services.AddSingleton<IProcessTrackingManager, ProcessTrackingManager>();
 
         return new ValidProcessTrackingBuilder(services);
     }
