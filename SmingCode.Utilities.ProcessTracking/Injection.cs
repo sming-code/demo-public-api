@@ -1,4 +1,7 @@
+using Azure.Monitor.OpenTelemetry.Exporter;
 using Microsoft.Extensions.DependencyInjection;
+using OpenTelemetry;
+using OpenTelemetry.Trace;
 
 namespace SmingCode.Utilities.ProcessTracking;
 

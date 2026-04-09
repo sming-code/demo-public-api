@@ -26,7 +26,6 @@ internal class ProcessTrackingHeaderMiddleware(
         );
 
         using var activity = processTrackingManager.InitializeProcessActivity(
-            "Will add soon",
             System.Diagnostics.ActivityKind.Internal,
             processTrackingDetail
         );

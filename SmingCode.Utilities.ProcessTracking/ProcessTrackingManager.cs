@@ -14,7 +14,6 @@ internal class ProcessTrackingManager(
     );
 
     public Activity InitializeProcessActivity(
-        string activityName,
         ActivityKind activityKind,
         ProcessTrackingDetail processTrackingDetail
     )
@@ -22,11 +21,12 @@ internal class ProcessTrackingManager(
         _processTrackingHandler.SetProcessTrackingDetail(processTrackingDetail);
         
         var activity = _activitySource.StartActivity(
-            activityName,
+            "TestActivityName",
+            //processTrackingConfiguration.ActivityName,
             activityKind
-        );
+        )!;
 
-        activity!.SetTag(PROCESS_ID_TAG_NAME, processTrackingDetail.ProcessId);
+        activity.SetTag(PROCESS_ID_TAG_NAME, processTrackingDetail.ProcessId);
         activity.SetTag(CORRELATION_ID_TAG_NAME, processTrackingDetail.CorrelationId);
 
         return activity;
