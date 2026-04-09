@@ -21,9 +21,9 @@ services.AddOpenTelemetry()
 
 services.InitialiseBusinessLogic(builder.Configuration);
 
-// services.AddProcessTracking(tracking =>
-//     tracking.AddApiMiddleware()
-// );
+services.AddProcessTracking(tracking => 
+    tracking.AddApiMiddleware()
+);
 
 var app = builder.Build();
 
