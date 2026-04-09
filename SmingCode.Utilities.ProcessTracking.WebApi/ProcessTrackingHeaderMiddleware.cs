@@ -1,7 +1,10 @@
+using Microsoft.Extensions.Logging;
+
 namespace SmingCode.Utilities.ProcessTracking.WebApi;
 
 internal class ProcessTrackingHeaderMiddleware(
-    RequestDelegate _next
+    RequestDelegate _next,
+    ILogger<ProcessTrackingHeaderMiddleware> _logger
 )
 {
     public async Task InvokeAsync(
@@ -10,7 +13,8 @@ internal class ProcessTrackingHeaderMiddleware(
     )
     {
         var processTrackingDetail = ProcessTrackingHeadersHelper.GetProcessTrackingDetailFromHeader(
-            httpContext.Request
+            httpContext.Request,
+            _logger
         );
 
         using var activity = processTrackingManager.InitializeProcessActivity(
