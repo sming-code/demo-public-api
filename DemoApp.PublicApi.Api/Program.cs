@@ -14,7 +14,7 @@ builder.Services.InitialiseBusinessLogic(builder.Configuration);
 builder.Services.AddOpenTelemetry()
     .UseAzureMonitor()
     .WithTracing(
-        tracerProviderBuilder => tracerProviderBuilder.AddSource("TestActivityName")
+        tracerProviderBuilder => tracerProviderBuilder.AddSource("TestActivitySource")
     );
 
 builder.Services.AddProcessTracking(tracking =>

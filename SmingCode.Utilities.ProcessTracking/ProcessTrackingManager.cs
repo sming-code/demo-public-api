@@ -3,14 +3,14 @@ using System.Diagnostics;
 namespace SmingCode.Utilities.ProcessTracking;
 
 internal class ProcessTrackingManager(
-    ProcessTrackingConfiguration processTrackingConfiguration,
+    //ProcessTrackingConfiguration processTrackingConfiguration,
     IProcessTrackingHandler _processTrackingHandler
 ) : IProcessTrackingManager
 {
     private const string PROCESS_ID_TAG_NAME = "process-id";
     private const string CORRELATION_ID_TAG_NAME = "correlation-id";
     private readonly ActivitySource _activitySource = new(
-        $"{processTrackingConfiguration.ServiceName}.{processTrackingConfiguration.ServiceInstanceId}"
+        "TestActivitySource"
     );
 
     public Activity InitializeProcessActivity(
