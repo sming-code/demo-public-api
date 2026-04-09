@@ -3,23 +3,27 @@ using DemoApp.PublicApi.BusinessLogic;
 using OpenTelemetry.Trace;
 using SmingCode.Utilities.ProcessTracking;
 using SmingCode.Utilities.ProcessTracking.WebApi;
+using SmingCode.Utilities.ServiceMetadata;
 
 var builder = WebApplication.CreateBuilder(args);
+var services = builder.Services;
 
 // Add services to the container.
 // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
-builder.Services.AddOpenApi();
-builder.Services.InitialiseBusinessLogic(builder.Configuration);
+services.AddOpenApi();
+services.InitializeServiceMetadata(out var serviceMetadata);
 
-builder.Services.AddOpenTelemetry()
+services.AddOpenTelemetry()
     .UseAzureMonitor()
-    .WithTracing(
-        tracerProviderBuilder => tracerProviderBuilder.AddSource("TestActivitySource")
+    .WithTracing(tracerProviderBuilder =>
+        tracerProviderBuilder.AddSource($"{serviceMetadata.FullServiceDescriptor}*")
     );
 
-builder.Services.AddProcessTracking(tracking =>
-    tracking.AddApiMiddleware()
-);
+services.InitialiseBusinessLogic(builder.Configuration);
+
+// services.AddProcessTracking(tracking =>
+//     tracking.AddApiMiddleware()
+// );
 
 var app = builder.Build();
 

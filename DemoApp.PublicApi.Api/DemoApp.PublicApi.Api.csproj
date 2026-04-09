@@ -17,6 +17,7 @@
     <ProjectReference Include="..\DemoApp.PublicApi.BusinessLogic\DemoApp.PublicApi.BusinessLogic.csproj" />
     <ProjectReference Include="..\SmingCode.Utilities.ProcessTracking\SmingCode.Utilities.ProcessTracking.csproj" />
     <ProjectReference Include="..\SmingCode.Utilities.ProcessTracking.WebApi\SmingCode.Utilities.ProcessTracking.WebApi.csproj" />
+    <ProjectReference Include="..\SmingCode.Utilities.ServiceMetadata\SmingCode.Utilities.ServiceMetadata.csproj" />
   </ItemGroup>
 
 </Project>

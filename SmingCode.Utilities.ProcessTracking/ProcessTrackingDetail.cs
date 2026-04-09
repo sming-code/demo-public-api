@@ -4,3 +4,13 @@ internal record ProcessTrackingDetail(
     string CorrelationId,
     string ProcessId
 );
+
+internal static class ProcessTrackingDetailExtensions
+{
+    internal static IEnumerable<KeyValuePair<string, object?>> GetActivityTags(
+        this ProcessTrackingDetail processTrackingDetail
+    ) => [
+        new("correlation-id", processTrackingDetail.CorrelationId),
+        new("process-id", processTrackingDetail.ProcessId)
+    ];
+}

@@ -12,17 +12,12 @@ public static class Injection
         Func<IProcessTrackingBuilder, IValidProcessTrackingBuilder> initialization
     )
     {
-        var processTrackingConfiguration = new ProcessTrackingConfiguration
-        {
-            ServiceName = "Public Api Api"
-        };
-        services.AddSingleton(processTrackingConfiguration);
-
         var processTrackingBuilder = new ProcessTrackingBuilder(services);
         initialization(processTrackingBuilder);
 
-        services.AddSingleton<IProcessTrackingManager, ProcessTrackingManager>();
-        services.AddSingleton<ProcessTrackingHandlerManager>();
+        services.AddScoped<IProcessTrackingHandler, ProcessTrackingHandler>();
+        // services.AddSingleton<IProcessTrackingManager, ProcessTrackingManager>();
+        // services.AddSingleton<ProcessTrackingHandlerManager>();
 
         return services;
     }

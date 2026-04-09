@@ -7,9 +7,12 @@ public class GetAllCustomersEndpoint : IMinimalEndpoint
         app.MapGet(
             "customer",
             async (
-                [FromServices] ICustomerService customerService
+                [FromServices] ICustomerService customerService,
+                [FromServices] ILogger<GetAllCustomersEndpoint> logger
             ) =>
             {
+                logger.LogInformation("Attempting to get customer info.");
+                
                 var allCustomers = await customerService.GetAllCustomers();
 
                 var response = allCustomers

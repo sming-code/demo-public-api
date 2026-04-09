@@ -1,6 +1,6 @@
 using System.Diagnostics.CodeAnalysis;
 
-namespace SmingCode.Utilities.ProcessTracking.WebApi;
+namespace SmingCode.Utilities.ProcessTracking;
 
 internal class ProcessTrackingHandler : IProcessTrackingHandler
 {
