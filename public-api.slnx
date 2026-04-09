@@ -7,4 +7,5 @@
   <Project Path="DemoApp.PublicApi.Worker/DemoApp.PublicApi.Worker.csproj" />
   <Project Path="SmingCode.Utilities.ProcessTracking.WebApi/SmingCode.Utilities.ProcessTracking.WebApi.csproj" />
   <Project Path="SmingCode.Utilities.ProcessTracking/SmingCode.Utilities.ProcessTracking.csproj" />
+  <Project Path="SmingCode.Utilities.ServiceMetadata/SmingCode.Utilities.ServiceMetadata.csproj" />
 </Solution>

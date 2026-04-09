@@ -13,7 +13,7 @@ internal class ProcessTrackingManager(
         "TestActivitySource"
     );
 
-    public Activity InitializeProcessActivity(
+    public void InitializeProcessActivity(
         ActivityKind activityKind,
         ProcessTrackingDetail processTrackingDetail
     )

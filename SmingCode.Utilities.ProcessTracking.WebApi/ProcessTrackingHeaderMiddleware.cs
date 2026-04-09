@@ -1,3 +1,4 @@
+using System.Diagnostics;
 using System.Text.Json;
 using Microsoft.Extensions.Logging;
 
@@ -24,6 +25,8 @@ internal class ProcessTrackingHeaderMiddleware(
             "Process tracking detail is {ProcessTrackingDetail}",
             JsonSerializer.Serialize(processTrackingDetail)
         );
+
+        
 
         using var activity = processTrackingManager.InitializeProcessActivity(
             System.Diagnostics.ActivityKind.Internal,
