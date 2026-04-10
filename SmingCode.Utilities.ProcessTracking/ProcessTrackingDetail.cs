@@ -7,7 +7,7 @@ internal record ProcessTrackingDetail(
 
 internal static class ProcessTrackingDetailExtensions
 {
-    internal static IEnumerable<KeyValuePair<string, object?>> GetActivityTags(
+    internal static List<KeyValuePair<string, object>> GetActivityTags(
         this ProcessTrackingDetail processTrackingDetail
     ) => [
         new("correlation-id", processTrackingDetail.CorrelationId),

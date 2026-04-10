@@ -11,10 +11,6 @@ internal class ProcessTrackingHeaderMiddleware(
     ILogger<ProcessTrackingHeaderMiddleware> _logger
 )
 {
-    private readonly ActivitySource _activitySource = new(
-        $"{serviceMetadataProvider.GetMetadata().FullServiceDescriptor}.ApiHandler"
-    );
-
     public async Task InvokeAsync(
         HttpContext httpContext,
         IProcessTrackingHandler processTrackingHandler
@@ -34,15 +30,11 @@ internal class ProcessTrackingHeaderMiddleware(
             JsonSerializer.Serialize(processTrackingDetail)
         );
 
-        var activityContext = Activity.Current?.Context
-            ?? new ActivityContext(new(), new(), ActivityTraceFlags.None);
-
-        using (var scope = _logger.BeginScope(
+        using var scope = _logger.BeginScope(
             processTrackingDetail.GetActivityTags()
-        ))
-        {
-            await _next(httpContext);
-        }
+                .Concat(serviceMetadataProvider.GetMetadata().GetCustomDimensions())
+        );
 
+        await _next(httpContext);
     }
 }
