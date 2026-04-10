@@ -15,6 +15,7 @@
   <ItemGroup>
     <ProjectReference Include="..\DemoApp.PublicApi.Domain\DemoApp.PublicApi.Domain.csproj" />
     <ProjectReference Include="..\DemoApp.PublicApi.BusinessLogic\DemoApp.PublicApi.BusinessLogic.csproj" />
+    <ProjectReference Include="..\SmingCode.Utilities.Logging.AspNetCore\SmingCode.Utilities.Logging.AspNetCore.csproj" />
     <ProjectReference Include="..\SmingCode.Utilities.ProcessTracking\SmingCode.Utilities.ProcessTracking.csproj" />
     <ProjectReference Include="..\SmingCode.Utilities.ProcessTracking.WebApi\SmingCode.Utilities.ProcessTracking.WebApi.csproj" />
     <ProjectReference Include="..\SmingCode.Utilities.ServiceMetadata\SmingCode.Utilities.ServiceMetadata.csproj" />
