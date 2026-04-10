@@ -2,6 +2,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\DemoApp.PublicApi.Domain\DemoApp.PublicApi.Domain.csproj" />
+    <ProjectReference Include="..\SmingCode.Utilities.ProcessTracking.WebApi\SmingCode.Utilities.ProcessTracking.WebApi.csproj" />
   </ItemGroup>
 
   <ItemGroup>

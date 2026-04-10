@@ -13,22 +13,14 @@ internal class ProcessTrackingHeaderMiddleware(
 {
     public async Task InvokeAsync(
         HttpContext httpContext,
+        IProcessTrackingHeadersProvider processTrackingHeadersProvider,
         IProcessTrackingHandler processTrackingHandler
     )
     {
-        _logger.LogInformation(
-            "Trying to get process tracking detail"
+        var processTrackingDetail = ((IProcessTrackingHeadersProviderInternal)processTrackingHeadersProvider).GetProcessTrackingDetailFromHeaders(
+            httpContext.Request
         );
-        var processTrackingDetail = ProcessTrackingHeadersHelper.GetProcessTrackingDetailFromHeader(
-            httpContext.Request,
-            _logger
-        );
-
         processTrackingHandler.SetProcessTrackingDetail(processTrackingDetail);
-        _logger.LogInformation(
-            "Process tracking detail is {ProcessTrackingDetail}",
-            JsonSerializer.Serialize(processTrackingDetail)
-        );
 
         using var scope = _logger.BeginScope(
             processTrackingDetail.GetActivityTags()

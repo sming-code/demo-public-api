@@ -1,4 +1,5 @@
 using Microsoft.AspNetCore.Builder;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace SmingCode.Utilities.ProcessTracking.WebApi;
 
@@ -8,12 +9,10 @@ public static class Injection
         this IProcessTrackingBuilder builder
     )
     {
-        // var services = ((IProcessTrackingBuilderInternal)builder).Services;
+        var services = ((IProcessTrackingBuilderInternal)builder).Services;
+        services.AddScoped<IProcessTrackingHeadersProvider, ProcessTrackingHeadersProvider>();
 
-        // services.AddSingleton<IProcessTrackingHandler, ProcessTrackingHandler>();
-        // services.AddSingleton<IProcessTrackingManager, ProcessTrackingManager>();
-
-        return new ValidProcessTrackingBuilder(((IProcessTrackingBuilderInternal)builder).Services);
+        return new ValidProcessTrackingBuilder(services);
     }
 
     public static IApplicationBuilder UseProcessTrackingMiddleware(
