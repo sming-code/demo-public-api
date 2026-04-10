@@ -28,7 +28,7 @@ builder.Logging.ClearProviders();
 // });
 
 services.AddOpenTelemetry()
-    .UseAzureMonitorExporter()
+    // .UseAzureMonitorExporter()
     .ConfigureResource(configure => configure.AddService("PublicApiApi"))
     .WithLogging(
         logging => logging.AddAzureMonitorLogExporter(),
@@ -36,6 +36,9 @@ services.AddOpenTelemetry()
         {
             options.IncludeScopes = true;
         }
+    )
+    .WithTracing(
+        tracing => tracing.AddAzureMonitorTraceExporter()
     );
 
 services.InitialiseBusinessLogic(builder.Configuration);
