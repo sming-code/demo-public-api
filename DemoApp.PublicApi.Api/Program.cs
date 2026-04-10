@@ -1,6 +1,9 @@
 using Azure.Monitor.OpenTelemetry.AspNetCore;
 using Azure.Monitor.OpenTelemetry.Exporter;
 using DemoApp.PublicApi.BusinessLogic;
+using OpenTelemetry;
+using OpenTelemetry.Logs;
+using OpenTelemetry.Resources;
 using OpenTelemetry.Trace;
 using SmingCode.Utilities.ProcessTracking;
 using SmingCode.Utilities.ProcessTracking.WebApi;
@@ -12,16 +15,28 @@ var services = builder.Services;
 // Add services to the container.
 // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
 services.AddOpenApi();
-services.InitializeServiceMetadata(out var serviceMetadata);
+services.InitializeServiceMetadata();
 
-services.AddLogging(builder =>
-{
-    builder.AddOpenTelemetry(logging =>
-    {
-        logging.IncludeScopes = true;
-        logging.AddAzureMonitorLogExporter();
-    });
-});
+builder.Logging.ClearProviders();
+
+// services.AddLogging(builder =>
+// {
+//     services.AddOpenTelemetry(
+//         builder,
+//         loggerOptions => loggerOptions.IncludeScopes = true
+//     );
+// });
+
+services.AddOpenTelemetry()
+    .UseAzureMonitorExporter()
+    .ConfigureResource(configure => configure.AddService("PublicApiApi"))
+    .WithLogging(
+        logging => logging.AddAzureMonitorLogExporter(),
+        options =>
+        {
+            options.IncludeScopes = true;
+        }
+    );
 
 services.InitialiseBusinessLogic(builder.Configuration);
 
