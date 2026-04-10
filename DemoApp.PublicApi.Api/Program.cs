@@ -23,9 +23,6 @@ services.AddLogging(builder =>
     });
 });
 
-services.AddOpenTelemetry()
-    .UseAzureMonitor();
-
 services.InitialiseBusinessLogic(builder.Configuration);
 
 services.AddProcessTracking(tracking => 
