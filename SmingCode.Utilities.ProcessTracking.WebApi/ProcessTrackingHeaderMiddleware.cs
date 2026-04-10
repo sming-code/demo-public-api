@@ -37,13 +37,15 @@ internal class ProcessTrackingHeaderMiddleware(
         var activityContext = Activity.Current?.Context
             ?? new ActivityContext(new(), new(), ActivityTraceFlags.None);
 
-        using var activity = _activitySource.StartActivity(
+        using (var activity = _activitySource.StartActivity(
             "Handling api",
             ActivityKind.Internal,
             activityContext,
             processTrackingDetail.GetActivityTags()
-        );
+        ))
+        {
+            await _next(httpContext);
+        }
 
-        await _next(httpContext);
     }
 }
