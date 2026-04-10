@@ -1,4 +1,5 @@
 using Azure.Monitor.OpenTelemetry.AspNetCore;
+using Azure.Monitor.OpenTelemetry.Exporter;
 using DemoApp.PublicApi.BusinessLogic;
 using OpenTelemetry.Trace;
 using SmingCode.Utilities.ProcessTracking;
@@ -13,11 +14,17 @@ var services = builder.Services;
 services.AddOpenApi();
 services.InitializeServiceMetadata(out var serviceMetadata);
 
+services.AddLogging(builder =>
+{
+    builder.AddOpenTelemetry(logging =>
+    {
+        logging.IncludeScopes = true;
+        logging.AddAzureMonitorLogExporter();
+    });
+});
+
 services.AddOpenTelemetry()
-    .UseAzureMonitor()
-    .WithTracing(tracerProviderBuilder =>
-        tracerProviderBuilder.AddSource($"{serviceMetadata.FullServiceDescriptor}*")
-    );
+    .UseAzureMonitor();
 
 services.InitialiseBusinessLogic(builder.Configuration);
 

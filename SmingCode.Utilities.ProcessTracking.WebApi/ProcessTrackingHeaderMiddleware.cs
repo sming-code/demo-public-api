@@ -37,10 +37,7 @@ internal class ProcessTrackingHeaderMiddleware(
         var activityContext = Activity.Current?.Context
             ?? new ActivityContext(new(), new(), ActivityTraceFlags.None);
 
-        using (var activity = _activitySource.StartActivity(
-            "Handling api",
-            ActivityKind.Internal,
-            activityContext,
+        using (var scope = _logger.BeginScope(
             processTrackingDetail.GetActivityTags()
         ))
         {
