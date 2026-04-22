@@ -4,5 +4,4 @@
   <Project Path="DemoApp.PublicApi.BusinessLogic/DemoApp.PublicApi.BusinessLogic.csproj" />
   <Project Path="DemoApp.PublicApi.Dependencies/DemoApp.PublicApi.Dependencies.csproj" />
   <Project Path="DemoApp.PublicApi.Domain/DemoApp.PublicApi.Domain.csproj" />
-  <Project Path="DemoApp.PublicApi.Worker/DemoApp.PublicApi.Worker.csproj" />
 </Solution>
