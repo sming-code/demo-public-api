@@ -20,7 +20,9 @@
                 "pattern": "\\bNow listening on:\\s+(https?://\\S+)"
             },
             "env": {
-                "ASPNETCORE_ENVIRONMENT": "Development"
+                "ASPNETCORE_ENVIRONMENT": "Development",
+                "Service_Name": "customer-svc",
+                "ConnectionStrings__CustomersDatabase": "Data Source=/home/matt/data/customer2.db"
             },
             "sourceFileMap": {
                 "/Views": "${workspaceFolder}/Views"
@@ -45,7 +47,9 @@
                 "pattern": "\\bNow listening on:\\s+(https?://\\S+)"
             },
             "env": {
-                "ASPNETCORE_ENVIRONMENT": "Development"
+                "ASPNETCORE_ENVIRONMENT": "Development",
+                "Service_Name": "customer-svc-worker",
+                "ConnectionStrings__CustomersDatabase": "Data Source=/home/matt/data/customer2.db"
             },
             "sourceFileMap": {
                 "/Views": "${workspaceFolder}/Views"

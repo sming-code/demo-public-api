@@ -9,11 +9,13 @@
   <ItemGroup>
     <PackageReference Include="Azure.Monitor.OpenTelemetry.AspNetCore" Version="1.4.0" />
     <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="10.0.1" />
-    <PackageReference Include="SmingCode.Utilities.MinimalApi" Version="1.0.8" />
-    <PackageReference Include="SmingCode.Utilities.Logging.AspNetCore" Version="1.0.8" />
-    <PackageReference Include="SmingCode.Utilities.ProcessTracking" Version="1.0.8" />
-    <PackageReference Include="SmingCode.Utilities.ProcessTracking.WebApi" Version="1.0.8" />
-    <PackageReference Include="SmingCode.Utilities.ServiceMetadata" Version="1.0.8" />
+    <PackageReference Include="SmingCode.Utilities.MinimalApi" Version="1.0.18" />
+    <PackageReference Include="SmingCode.Utilities.Logging.AspNetCore" Version="1.0.18" />
+    <PackageReference Include="SmingCode.Utilities.ProcessTracking" Version="1.0.18" />
+    <PackageReference Include="SmingCode.Utilities.ProcessTracking.WebApi" Version="1.0.18" />
+    <PackageReference Include="SmingCode.Utilities.ServiceMetadata" Version="1.0.18" />
+    <PackageReference Include="SmingCode.Utilities.StartupProcesses" Version="1.0.18" />
+    <PackageReference Include="SmingCode.Utilities.StartupProcesses.AspNetCore" Version="1.0.18" />
   </ItemGroup>
 
   <ItemGroup>
