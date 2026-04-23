@@ -54,7 +54,6 @@ jobs:
       matrix:
         service-type:
           - Api
-          - Worker
     needs: [ variables, build-test ]
     steps:
     - uses: sming-code/build-docker-image-action@v1
