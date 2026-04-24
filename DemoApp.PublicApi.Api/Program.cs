@@ -1,5 +1,4 @@
 using DemoApp.PublicApi.BusinessLogic;
-using SmingCode.Utilities.Logging.AspNetCore;
 using SmingCode.Utilities.ProcessTracking;
 using SmingCode.Utilities.ProcessTracking.WebApi;
 using SmingCode.Utilities.ServiceMetadata;
@@ -14,8 +13,7 @@ var services = builder.Services;
 services.AddOpenApi();
 
 services.InitializeServiceMetadata();
-
-builder.InitializeLogging();
+// builder.InitializeLogging();
 
 services.InitialiseBusinessLogic(builder.Configuration);
 

@@ -1,3 +1,5 @@
+using SmingCode.Utilities.ProcessTracking;
+
 namespace DemoApp.PublicApi.Api.Endpoints;
 using Models;
 
@@ -8,6 +10,7 @@ public class GetAllCustomersEndpoint : IMinimalEndpoint
             "customer",
             async (
                 [FromServices] ICustomerService customerService,
+                [FromServices] IProcessTrackingHandler processTrackingHandler,
                 [FromServices] ILogger<GetAllCustomersEndpoint> logger
             ) =>
             {

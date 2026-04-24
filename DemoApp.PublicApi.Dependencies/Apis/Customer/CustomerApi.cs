@@ -1,58 +1,27 @@
-using System.Net.Http.Headers;
-using System.Net.Http.Json;
-using System.Text.Json;
+using SmingCode.Utilities.ServiceApiClient;
 
 namespace DemoApp.PublicApi.Dependencies.Apis.Customer;
 
 internal class CustomerApi(
-    HttpClient _httpClient
+    IServiceApiClient<CustomerApi> _serviceApiClient
 ) : ICustomerApi
 {
     public async Task<Guid> CreateCustomer(
         string firstName,
         string surname
-    )
-    {
-        var response = await _httpClient.PostAsJsonAsync(
-            "customer",
-            new
-            {
-                FirstName = firstName,
-                Surname = surname
-            });
-
-        response.EnsureSuccessStatusCode();
-
-        var result = await response.Content.ReadFromJsonAsync<Guid>();
-        return result!;
-    }
-
-    public async Task<CustomerDto[]> GetAllCustomers()
-    {
-        HttpRequestMessage request = new(
-            HttpMethod.Get,
-            "customer"
+    ) => await _serviceApiClient.Post<(string FirstName, string Surname), Guid>(
+            string.Empty,
+            ( firstName, surname )
         );
 
-        var response = await _httpClient.SendAsync(request);
-
-        response.EnsureSuccessStatusCode();
-
-        var result = await response.Content.ReadFromJsonAsync<CustomerDto[]>();
-        return result!;
-    }
+    public async Task<CustomerDto[]> GetAllCustomers()
+     => await _serviceApiClient.Get<CustomerDto[]>(
+            string.Empty
+        );
 
     public async Task<CustomerDto> GetCustomerByIdentifier(
         Guid customerIdentifier
-    )
-    {
-        var response = await _httpClient.GetAsync(
+    ) => await _serviceApiClient.Get<CustomerDto>(
             $"customer/{customerIdentifier}"
         );
-
-        response.EnsureSuccessStatusCode();
-
-        var result = await response.Content.ReadFromJsonAsync<CustomerDto>();
-        return result!;
-    }
 }
