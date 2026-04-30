@@ -38,8 +38,8 @@ await app.RunUserDefinedStartupProcesses(
 
 using var globalLoggerScope = app.Logger.BeginScope(new Dictionary<string, object>
 {
-    { "service-name", "Public Api" },
-    { "service-instance-id", Guid.NewGuid().ToString() }
+    { "serviceName", "Public Api" },
+    { "serviceInstanceId", Guid.NewGuid().ToString() }
 });
 
 app.Run();
