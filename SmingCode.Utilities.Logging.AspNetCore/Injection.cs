@@ -17,11 +17,12 @@ public static class Injection
         this WebApplicationBuilder builder
     )
     {
+        builder.Services.AddSingleton<ServiceMetadataOpenTelemetryActivityEnrichingProcessor>();
         builder.Services.ConfigureOpenTelemetryTracerProvider((sp, builder) =>
         {
             builder.AddProcessor<ServiceMetadataOpenTelemetryActivityEnrichingProcessor>();
         });
-        
+
         builder.Services.AddOpenTelemetry()
             .ConfigureResource(r => r.AddService("TestServiceName", serviceVersion: "1.0.1", autoGenerateServiceInstanceId: false, serviceInstanceId: "Test"))
             .UseAzureMonitor();
@@ -32,15 +33,12 @@ public static class Injection
     }
 }
 
-internal class ServiceMetadataOpenTelemetryActivityEnrichingProcessor(
-    IServiceMetadataProvider _serviceMetadataProvider
-) : BaseProcessor<Activity>
+internal class ServiceMetadataOpenTelemetryActivityEnrichingProcessor : BaseProcessor<Activity>
 {
+    private static readonly string _instanceId = Guid.NewGuid().ToString();
     public override void OnEnd(Activity activity)
     {
-        foreach (var serviceMetadataDimension in _serviceMetadataProvider.GetMetadata().GetCustomDimensions())
-        {
-            activity.SetTag(serviceMetadataDimension.Key, serviceMetadataDimension.Value);
-        }
+        activity.SetTag("service-name", "Public Api");
+        activity.SetTag("service-instance-id", _instanceId);
     }
 }
