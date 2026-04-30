@@ -36,4 +36,10 @@ await app.RunUserDefinedStartupProcesses(
     dependencyManager => dependencyManager.EnableAspNetCore()
 );
 
+using var globalLoggerScope = app.Logger.BeginScope(new Dictionary<string, object>
+{
+    { "service-name", "Public Api" },
+    { "service-instance-id", Guid.NewGuid().ToString() }
+});
+
 app.Run();
