@@ -7,8 +7,12 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\DemoApp.PublicApi.Domain\DemoApp.PublicApi.Domain.csproj" />
-    <ProjectReference Include="..\SmingCode.Utilities.ProcessTracking.WebApi\SmingCode.Utilities.ProcessTracking.WebApi.csproj" />
+    <PackageReference Include="Microsoft.AspNetCore.Http.Abstractions" Version="2.3.9" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\SmingCode.Utilities.ProcessTracking\SmingCode.Utilities.ProcessTracking.csproj" />
+    <ProjectReference Include="..\SmingCode.Utilities.StartupProcesses\SmingCode.Utilities.StartupProcesses.csproj" />
     <ProjectReference Include="..\SmingCode.Utilities.ServiceApiClient\SmingCode.Utilities.ServiceApiClient.csproj" />
   </ItemGroup>
 
