@@ -17,10 +17,6 @@ public class CreateCustomerEndpoint : IMinimalEndpoint
                     newCustomer.FirstName,
                     newCustomer.Surname
                 );
-                // var newCustomerIdentifier = FakeStorage.AddCustomer(
-                //     newCustomer.FirstName,
-                //     newCustomer.Surname
-                // );
 
                 var getCustomerLink = linkGenerator.GetUriByName(
                     httpContext,

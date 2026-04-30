@@ -1,5 +1,5 @@
 using Microsoft.Extensions.Configuration;
-using SmingCode.Utilities.ServiceApiClient;
+using SmingCode.Utilities.ServiceApiClient.Config;
 
 namespace DemoApp.PublicApi.Dependencies;
 using Apis.Customer;
