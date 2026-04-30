@@ -7,6 +7,8 @@ using OpenTelemetry;
 using System.Diagnostics;
 
 namespace SmingCode.Utilities.Logging.AspNetCore;
+
+using OpenTelemetry.Resources;
 using ServiceMetadata;
 
 public static class Injection
@@ -15,9 +17,14 @@ public static class Injection
         this WebApplicationBuilder builder
     )
     {
+        builder.Services.ConfigureOpenTelemetryTracerProvider((sp, builder) =>
+        {
+            builder.AddProcessor<ServiceMetadataOpenTelemetryActivityEnrichingProcessor>();
+        });
+        
         builder.Services.AddOpenTelemetry()
-            .UseAzureMonitor()
-            .WithTracing(builder => builder.AddProcessor<ServiceMetadataOpenTelemetryActivityEnrichingProcessor>());
+            .ConfigureResource(r => r.AddService("TestServiceName", serviceVersion: "1.0.1", autoGenerateServiceInstanceId: false, serviceInstanceId: "Test"))
+            .UseAzureMonitor();
 
         builder.Logging.AddOpenTelemetry(options => options.IncludeScopes = true);
 
@@ -33,7 +40,7 @@ internal class ServiceMetadataOpenTelemetryActivityEnrichingProcessor(
     {
         foreach (var serviceMetadataDimension in _serviceMetadataProvider.GetMetadata().GetCustomDimensions())
         {
-            activity.AddTag(serviceMetadataDimension.Key, serviceMetadataDimension.Value);
+            activity.SetTag(serviceMetadataDimension.Key, serviceMetadataDimension.Value);
         }
     }
 }
