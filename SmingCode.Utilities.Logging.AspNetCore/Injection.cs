@@ -17,12 +17,6 @@ public static class Injection
         this WebApplicationBuilder builder
     )
     {
-        builder.Services.AddSingleton<ServiceMetadataOpenTelemetryActivityEnrichingProcessor>();
-        builder.Services.ConfigureOpenTelemetryTracerProvider((sp, builder) =>
-        {
-            builder.AddProcessor<ServiceMetadataOpenTelemetryActivityEnrichingProcessor>();
-        });
-
         builder.Services.AddOpenTelemetry()
             .ConfigureResource(r => r.AddService("TestServiceName", serviceVersion: "1.0.1", autoGenerateServiceInstanceId: false, serviceInstanceId: "Test"))
             .UseAzureMonitor();
