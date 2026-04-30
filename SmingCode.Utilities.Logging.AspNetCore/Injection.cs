@@ -33,7 +33,7 @@ internal class ServiceMetadataOpenTelemetryActivityEnrichingProcessor(
     {
         foreach (var serviceMetadataDimension in _serviceMetadataProvider.GetMetadata().GetCustomDimensions())
         {
-            activity.SetTag(serviceMetadataDimension.Key, serviceMetadataDimension.Value);
+            activity.AddTag(serviceMetadataDimension.Key, serviceMetadataDimension.Value);
         }
     }
 }
