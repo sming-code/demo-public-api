@@ -1,6 +1,5 @@
 ﻿using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Logging;
 
 namespace SmingCode.Utilities.ServiceMetadata.WebApplicationStartup;
 
@@ -14,13 +13,6 @@ public static class WebApplicationExtension
         var metadataCustomDimensions = metadataProvider.GetMetadata().GetCustomDimensions();
 
         using var globalLoggerScope = app.Logger.BeginScope(
-            metadataCustomDimensions
-        );
-
-        var localisedLoggers = app.Services.GetRequiredService<ILoggerFactory>();
-        var logger = localisedLoggers.CreateLogger<ServiceMetadataProvider>();
-
-        using var localisedLoggerScope = logger.BeginScope(
             metadataCustomDimensions
         );
 
