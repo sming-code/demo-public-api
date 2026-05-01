@@ -7,8 +7,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="SmingCode.Utilities.ProcessTracking.WebApi" Version="1.0.23" />
-    <PackageReference Include="SmingCode.Utilities.ServiceApiClient" Version="1.0.23" />
+    <PackageReference Include="SmingCode.Utilities.ProcessTracking.WebApi" Version="1.0.25" />
+    <PackageReference Include="SmingCode.Utilities.ServiceApiClient" Version="1.0.25" />
   </ItemGroup>
 
   <ItemGroup>
