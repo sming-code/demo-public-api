@@ -3,6 +3,7 @@ using SmingCode.Utilities.Logging.AspNetCore;
 using SmingCode.Utilities.ProcessTracking;
 using SmingCode.Utilities.ProcessTracking.WebApi.Config;
 using SmingCode.Utilities.ServiceMetadata.Config;
+using SmingCode.Utilities.ServiceMetadata.WebApplicationStartup;
 using SmingCode.Utilities.StartupProcesses;
 using SmingCode.Utilities.StartupProcesses.AspNetCore;
 
@@ -36,10 +37,6 @@ await app.RunUserDefinedStartupProcesses(
     dependencyManager => dependencyManager.EnableAspNetCore()
 );
 
-using var globalLoggerScope = app.Logger.BeginScope(new Dictionary<string, object>
-{
-    { "serviceName", "Public Api" },
-    { "serviceInstanceId", Guid.NewGuid().ToString() }
-});
+app.RunWithServiceMetadataLoggerScope();
 
-app.Run();
+// app.Run();

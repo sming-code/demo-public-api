@@ -22,6 +22,7 @@
     <ProjectReference Include="..\SmingCode.Utilities.ServiceMetadata\SmingCode.Utilities.ServiceMetadata.csproj" />
     <ProjectReference Include="..\SmingCode.Utilities.StartupProcesses\SmingCode.Utilities.StartupProcesses.csproj" />
     <ProjectReference Include="..\SmingCode.Utilities.StartupProcesses.AspNetCore\SmingCode.Utilities.StartupProcesses.AspNetCore.csproj" />
+    <ProjectReference Include="..\SmingCode.Utilities.ServiceMetadata.WebApplicationStartup\SmingCode.Utilities.ServiceMetadata.WebApplicationStartup.csproj" />
   </ItemGroup>
 
 </Project>

@@ -18,6 +18,7 @@
   <Project Path="SmingCode.Utilities.ProcessTracking.WebApi/SmingCode.Utilities.ProcessTracking.WebApi.csproj" />
   <Project Path="SmingCode.Utilities.ProcessTracking/SmingCode.Utilities.ProcessTracking.csproj" />
   <Project Path="SmingCode.Utilities.ServiceApiClient/SmingCode.Utilities.ServiceApiClient.csproj" />
+  <Project Path="SmingCode.Utilities.ServiceMetadata.WebApplicationStartup/SmingCode.Utilities.ServiceMetadata.WebApplicationStartup.csproj" />
   <Project Path="SmingCode.Utilities.ServiceMetadata/SmingCode.Utilities.ServiceMetadata.csproj" />
   <Project Path="SmingCode.Utilities.StartupProcesses.AspNetCore/SmingCode.Utilities.StartupProcesses.AspNetCore.csproj" />
   <Project Path="SmingCode.Utilities.StartupProcesses/SmingCode.Utilities.StartupProcesses.csproj" />
