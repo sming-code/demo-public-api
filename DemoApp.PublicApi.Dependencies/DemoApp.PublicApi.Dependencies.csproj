@@ -7,9 +7,12 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="SmingCode.Utilities.ProcessTracking.WebApi" Version="1.0.23" />
+    <PackageReference Include="SmingCode.Utilities.ServiceApiClient" Version="1.0.23" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\DemoApp.PublicApi.Domain\DemoApp.PublicApi.Domain.csproj" />
-    <ProjectReference Include="..\SmingCode.Utilities.ProcessTracking.WebApi\SmingCode.Utilities.ProcessTracking.WebApi.csproj" />
-    <ProjectReference Include="..\SmingCode.Utilities.ServiceApiClient\SmingCode.Utilities.ServiceApiClient.csproj" />
   </ItemGroup>
 
 </Project>

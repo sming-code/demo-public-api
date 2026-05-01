@@ -10,19 +10,19 @@
     <PackageReference Include="Azure.Monitor.OpenTelemetry.AspNetCore" Version="1.4.0" />
     <PackageReference Include="OpenTelemetry.Api" Version="1.15.3" />
     <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="10.0.1" />
+    <PackageReference Include="SmingCode.Utilities.MinimalApi" Version="1.0.23" />
+    <PackageReference Include="SmingCode.Utilities.Logging.AspNetCore" Version="1.0.23" />
+    <PackageReference Include="SmingCode.Utilities.ProcessTracking" Version="1.0.23" />
+    <PackageReference Include="SmingCode.Utilities.ProcessTracking.WebApi" Version="1.0.23" />
+    <PackageReference Include="SmingCode.Utilities.ServiceMetadata" Version="1.0.23" />
+    <PackageReference Include="SmingCode.Utilities.StartupProcesses" Version="1.0.23" />
+    <PackageReference Include="SmingCode.Utilities.StartupProcesses.AspNetCore" Version="1.0.23" />
+    <PackageReference Include="SmingCode.Utilities.ServiceMetadata.WebApplicationStartup" Version="1.0.23" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\DemoApp.PublicApi.Domain\DemoApp.PublicApi.Domain.csproj" />
     <ProjectReference Include="..\DemoApp.PublicApi.BusinessLogic\DemoApp.PublicApi.BusinessLogic.csproj" />
-    <ProjectReference Include="..\SmingCode.Utilities.MinimalApi\SmingCode.Utilities.MinimalApi.csproj" />
-    <ProjectReference Include="..\SmingCode.Utilities.Logging.AspNetCore\SmingCode.Utilities.Logging.AspNetCore.csproj" />
-    <ProjectReference Include="..\SmingCode.Utilities.ProcessTracking\SmingCode.Utilities.ProcessTracking.csproj" />
-    <ProjectReference Include="..\SmingCode.Utilities.ProcessTracking.WebApi\SmingCode.Utilities.ProcessTracking.WebApi.csproj" />
-    <ProjectReference Include="..\SmingCode.Utilities.ServiceMetadata\SmingCode.Utilities.ServiceMetadata.csproj" />
-    <ProjectReference Include="..\SmingCode.Utilities.StartupProcesses\SmingCode.Utilities.StartupProcesses.csproj" />
-    <ProjectReference Include="..\SmingCode.Utilities.StartupProcesses.AspNetCore\SmingCode.Utilities.StartupProcesses.AspNetCore.csproj" />
-    <ProjectReference Include="..\SmingCode.Utilities.ServiceMetadata.WebApplicationStartup\SmingCode.Utilities.ServiceMetadata.WebApplicationStartup.csproj" />
   </ItemGroup>
 
 </Project>
